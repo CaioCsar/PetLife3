@@ -32,8 +32,8 @@ namespace PetLife.Models
         [Display(Name = "Características")]
         public string caracteristicasAnimal { get; set; }
 
-       public string? FotoMimeType { get; set; }
-       public byte[]? fotoAnimal { get; set; }
+       public string FotoMimeType { get; set; }
+       public byte[] fotoAnimal { get; set; }
 
        [NotMapped]
        public IFormFile formFile { get; set; }

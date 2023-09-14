@@ -99,10 +99,10 @@ namespace PetLife.Controllers
             {
                 try
                 {
-                        var stream = new MemoryStream();
-                        await foto.CopyToAsync(stream);
-                        animal.fotoAnimal = stream.ToArray();
-                        animal.FotoMimeType = foto.ContentType; 
+                    var stream = new MemoryStream();
+                    await foto.CopyToAsync(stream);
+                    animal.fotoAnimal = stream.ToArray();
+                    animal.FotoMimeType = foto.ContentType;
 
                     _context.Update(animal);
                     await _context.SaveChangesAsync();
