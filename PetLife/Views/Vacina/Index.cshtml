@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PetLife.Models.Vacina>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vacinas</h1>
+
+<p>
+    <a asp-action="Create"><img class="icon" src="~/img/create.png" /></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nomeVacina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dataAplicacaoVacina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.localAplicacaoVacina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dataProximaVacina)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomeVacina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataAplicacaoVacina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.localAplicacaoVacina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataProximaVacina)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idVacina"><img class="icon" src="~/img/edit.webp" /></a>
+                <a asp-action="Details" asp-route-id="@item.idVacina"><img class="icon" src="~/img/details.webp" /></a>
+                <a asp-action="Delete" asp-route-id="@item.idVacina"><img class="icon" src="~/img/delete.webp" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

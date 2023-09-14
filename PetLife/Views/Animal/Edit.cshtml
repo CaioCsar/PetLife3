@@ -1,0 +1,64 @@
+﻿@model PetLife.Models.Animal
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Pet cadastrado</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nomeAnimal" class="control-label"></label>
+                <input asp-for="nomeAnimal" class="form-control" />
+                <span asp-validation-for="nomeAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="racaAnimal" class="control-label"></label>
+                <input asp-for="racaAnimal" class="form-control" />
+                <span asp-validation-for="racaAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dataNascAnimal" class="control-label"></label>
+                <input asp-for="dataNascAnimal" class="form-control" />
+                <span asp-validation-for="dataNascAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pesoAnimal" class="control-label"></label>
+                <input asp-for="pesoAnimal" class="form-control" />
+                <span asp-validation-for="pesoAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tipoAnimal" class="control-label"></label>
+                <input asp-for="tipoAnimal" class="form-control" />
+                <span asp-validation-for="tipoAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="caracteristicasAnimal" class="control-label"></label>
+                <input asp-for="caracteristicasAnimal" class="form-control" />
+                <span asp-validation-for="caracteristicasAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label name="foto" class="control-label">Foto do Pet</label>
+                <input type="file" name="foto" class="form-control" />
+            </div>
+            <input type="hidden" asp-for="idAnimal" />
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

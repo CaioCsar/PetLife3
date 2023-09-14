@@ -1,0 +1,61 @@
+﻿@model PetLife.Models.Vacina
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Remover Vacina</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.nomeVacina)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.nomeVacina)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.dataAplicacaoVacina)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.dataAplicacaoVacina)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.localAplicacaoVacina)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.localAplicacaoVacina)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.dataProximaVacina)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.dataProximaVacina)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.observacaoVacina)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.observacaoVacina)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.fotoCertificadoVacina)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.fotoCertificadoVacina)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.idAnimal)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.idAnimal)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="idVacina" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-primary">Voltar</a>
+    </form>
+</div>
