@@ -1,62 +1,59 @@
 ﻿@model PetLife.Models.Vacina
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Details";
 }
 
-<h1>Editar  Vacina</h1>
-
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="idVacina" />
-            <div class="form-group">
-                <label asp-for="nomeVacina" class="control-label"></label>
-                <input asp-for="nomeVacina" class="form-control" />
-                <span asp-validation-for="nomeVacina" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="dataAplicacaoVacina" class="control-label"></label>
-                <input asp-for="dataAplicacaoVacina" class="form-control" />
-                <span asp-validation-for="dataAplicacaoVacina" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="localAplicacaoVacina" class="control-label"></label>
-                <input asp-for="localAplicacaoVacina" class="form-control" />
-                <span asp-validation-for="localAplicacaoVacina" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="dataProximaVacina" class="control-label"></label>
-                <input asp-for="dataProximaVacina" class="form-control" />
-                <span asp-validation-for="dataProximaVacina" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="observacaoVacina" class="control-label"></label>
-                <input asp-for="observacaoVacina" class="form-control" />
-                <span asp-validation-for="observacaoVacina" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label name="foto" class="control-label">Foto Certificado</label>
-                <input type="file" name="foto" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="idAnimal" class="control-label">Nome do Pet</label>
-                <select asp-for="idAnimal" class="form-control" asp-items=@ViewBag.Animals></select>
-                <span asp-validation-for="idAnimal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Editar" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-primary">Voltar</a>
-            </div>
-        </form>
-    </div>
-</div>
+<h1>Detalhes da Vacina</h1>
 
 <div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nomeVacina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nomeVacina)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dataAplicacaoVacina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dataAplicacaoVacina)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.localAplicacaoVacina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.localAplicacaoVacina)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dataProximaVacina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dataProximaVacina)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.observacaoVacina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.observacaoVacina)
+        </dd>
+        <dt class="col-sm-2">
+            Foto do Pet
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Url.Action("GetFoto", "Animal", new { id = Model.idAnimal})" class="fotoDetails" />
+        </dd>
+        <dt class = "col-sm-2">
+            Cód. do Pet Associado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.idAnimal)
+        </dd>
+    </dl>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idVacina" class="btn btn-primary">Editar</a> |
+    <a asp-action="Index" class="btn btn-primary">Voltar</a>
+</div>

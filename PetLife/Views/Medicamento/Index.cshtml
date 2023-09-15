@@ -21,21 +21,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.dataInicioMed)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.dosagemMed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.periodoUsoMed)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.intervaloUsoMed)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.observacoesMed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idAnimal)
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -51,20 +41,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.dataInicioMed)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dosagemMed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.periodoUsoMed)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.intervaloUsoMed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.observacoesMed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.idAnimal)
             </td>
             <td>
                     <a asp-action="Edit" asp-route-id="@item.idMed"><img class="icon" src="~/img/edit.webp" /></a>

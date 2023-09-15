@@ -88,7 +88,7 @@ namespace PetLife.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("idAnimal,nomeAnimal,racaAnimal,dataNascAnimal,pesoAnimal,tipoAnimal,caracteristicasAnimal,FotoMimeType,fotoAnimal")] Animal animal, IFormFile foto)
+        public async Task<IActionResult> Edit(long? id, [Bind("idAnimal,nomeAnimal,racaAnimal,dataNascAnimal,pesoAnimal,tipoAnimal,caracteristicasAnimal, observacao")] Animal animal, IFormFile foto)
         {
             if (id != animal.idAnimal)
             {
@@ -99,10 +99,14 @@ namespace PetLife.Controllers
             {
                 try
                 {
+                   if( foto != null)
+                    {
                     var stream = new MemoryStream();
                     await foto.CopyToAsync(stream);
                     animal.fotoAnimal = stream.ToArray();
                     animal.FotoMimeType = foto.ContentType;
+
+                    }
 
                     _context.Update(animal);
                     await _context.SaveChangesAsync();

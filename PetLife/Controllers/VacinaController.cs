@@ -63,7 +63,7 @@ namespace PetLife.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("idVacina,nomeVacina,dataAplicacaoVacina,localAplicacaoVacina,dataProximaVacina,observacaoVacina,fotoCertificadoVacina,FotoMimeType,idAnimal")] Vacina vacina)
+        public async Task<IActionResult> Create([Bind("idVacina,nomeVacina,dataAplicacaoVacina,localAplicacaoVacina,dataProximaVacina,observacaoVacina,idAnimal")] Vacina vacina)
         {
             if (ModelState.IsValid)
             {
@@ -107,10 +107,14 @@ namespace PetLife.Controllers
             {
                 try
                 {
-                    var stream = new MemoryStream();
-                    await foto.CopyToAsync(stream);
-                    vacina.fotoCertificadoVacina = stream.ToArray();
-                    vacina.FotoMimeType = foto.ContentType;
+                    if (foto != null)
+                    {
+                        var stream = new MemoryStream();
+                        await foto.CopyToAsync(stream);
+                        vacina.fotoCertificadoVacina = stream.ToArray();
+                        vacina.FotoMimeType = foto.ContentType;
+
+                    }
 
                     _context.Update(vacina);
                     await _context.SaveChangesAsync();
