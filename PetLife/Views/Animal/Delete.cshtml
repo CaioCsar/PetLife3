@@ -1,4 +1,4 @@
-﻿@model PetLife.Models.Animal
+﻿@model Animal
 
 @{
     ViewData["Title"] = "Delete";
@@ -10,47 +10,48 @@
 <div>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fotoAnimal)
-        </dt>
-        <dt class = "col-sm-2">
+        
+        <dt class = "col-sm-5">
             @Html.DisplayNameFor(model => model.nomeAnimal)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-7">
             @Html.DisplayFor(model => model.nomeAnimal)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-5">
             @Html.DisplayNameFor(model => model.racaAnimal)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-7">
             @Html.DisplayFor(model => model.racaAnimal)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-5">
             @Html.DisplayNameFor(model => model.dataNascAnimal)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-7">
             @Html.DisplayFor(model => model.dataNascAnimal)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-5">
             @Html.DisplayNameFor(model => model.pesoAnimal)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-7">
             @Html.DisplayFor(model => model.pesoAnimal)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-5">
             @Html.DisplayNameFor(model => model.tipoAnimal)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-7">
             @Html.DisplayFor(model => model.tipoAnimal)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-5">
             @Html.DisplayNameFor(model => model.caracteristicasAnimal)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-7">
             @Html.DisplayFor(model => model.caracteristicasAnimal)
         </dd>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fotoAnimal)
+        <dt class="col-sm-5">
+            Foto do Pet
+        </dt>
+        <dd class = "col-sm-7">
+            <img src="@Url.Action("GetFoto", "Animal", new { id = Model.idAnimal})" class="fotoDetails" />
         </dd>
     </dl>
     

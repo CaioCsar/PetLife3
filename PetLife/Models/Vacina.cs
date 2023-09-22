@@ -31,12 +31,12 @@ namespace PetLife.Models
         public string observacaoVacina { get; set; }
 
         [Display(Name = "Foto do Certificado de Vacinação")]
-        public byte[]? fotoCertificadoVacina { get; set; }
-        public string? FotoMimeType { get; set; }
+        public byte[] fotoCertificadoVacina { get; set; }
+        public string FotoMimeType { get; set; }
         [NotMapped]
-        public IFormFile? formFile { get; set; }
+        public IFormFile formFile { get; set; }
 
-        public long?  idAnimal { get; set; }
+        public long? idAnimal { get; set; }
         public Animal Animal { get; set; }
     }
 }

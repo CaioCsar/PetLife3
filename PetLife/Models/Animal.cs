@@ -27,19 +27,21 @@ namespace PetLife.Models
         public double pesoAnimal { get; set; }
 
         [Display(Name = "Tipo")]
-        public  string tipoAnimal { get; set; }
+        public string tipoAnimal { get; set; }
 
         [Display(Name = "Características")]
         public string caracteristicasAnimal { get; set; }
 
-       public string? FotoMimeType { get; set; }
-       public byte[]? fotoAnimal { get; set; }
+        public string FotoMimeType { get; set; }
+        public byte[] fotoAnimal { get; set; }
 
-       [NotMapped]
-       public IFormFile? formFile { get; set; }
+        [NotMapped]
+        public IFormFile formFile { get; set; }
 
 
         public virtual ICollection<Vacina> Vacinas { get; set; }
         public virtual ICollection<Medicamento> Medicamentos { get; set; }
+
+
     }
 }

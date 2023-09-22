@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +14,7 @@ using PetLife.Models;
 
 namespace PetLife.Controllers
 {
+    [Authorize]
     public class AnimalController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -83,6 +86,17 @@ namespace PetLife.Controllers
             return View(animal);
         }
 
+        //GET FOTO PARA DETAILS
+        public async Task<FileContentResult> GetFoto(long id)
+        {
+            Animal animal = await _context.Animal.FindAsync(id);
+            if (animal != null)
+            {
+                return File(animal.fotoAnimal, animal.FotoMimeType);
+            }
+            return null;
+        }
+
         // POST: Animal/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -99,14 +113,15 @@ namespace PetLife.Controllers
             {
                 try
                 {
-                   if( foto != null)
+                    if (foto != null)
                     {
-                    var stream = new MemoryStream();
-                    await foto.CopyToAsync(stream);
-                    animal.fotoAnimal = stream.ToArray();
-                    animal.FotoMimeType = foto.ContentType;
+                        var stream = new MemoryStream();
+                        await foto.CopyToAsync(stream);
+                        animal.fotoAnimal = stream.ToArray();
+                        animal.FotoMimeType = foto.ContentType;
 
                     }
+                    
 
                     _context.Update(animal);
                     await _context.SaveChangesAsync();
@@ -161,15 +176,6 @@ namespace PetLife.Controllers
             return _context.Animal.Any(e => e.idAnimal == id);
         }
 
-        //GET FOTO PARA DETAILS
-        public async Task<FileContentResult> GetFoto(long id)
-        {
-            Animal animal = await _context.Animal.FindAsync(id);
-            if (animal != null)
-            {
-                return File(animal.fotoAnimal, animal.FotoMimeType);
-            }
-            return null;
-        }
+        
     }
 }

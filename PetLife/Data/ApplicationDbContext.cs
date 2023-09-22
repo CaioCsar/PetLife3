@@ -13,8 +13,8 @@ namespace PetLife.Data
             : base(options)
         {
         }
-        public DbSet<PetLife.Models.Animal> Animal { get; set; }
-        public DbSet<PetLife.Models.Vacina> Vacina { get; set; }
-        public DbSet<PetLife.Models.Medicamento> Medicamento { get; set; }
+        public DbSet<Animal> Animal { get; set; }
+        public DbSet<Vacina> Vacina { get; set; }
+        public DbSet<Medicamento> Medicamento { get; set; }
     }
 }

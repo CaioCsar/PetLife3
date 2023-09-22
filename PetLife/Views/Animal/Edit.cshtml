@@ -1,4 +1,4 @@
-﻿@model PetLife.Models.Animal
+﻿@model Animal
 
 @{
     ViewData["Title"] = "Edit";
@@ -44,6 +44,12 @@
             <div class="form-group">
                 <label name="foto" class="control-label">Foto do Pet</label>
                 <input type="file" name="foto" class="form-control" />
+            </div>
+            <div class="col-sm-10">
+            <img src="@Url.Action("GetFoto", "Animal", new { id = Model.idAnimal})" class="fotoDetails" />
+            </div>
+            <div>
+
             </div>
             <input type="hidden" asp-for="idAnimal" />
             <div class="form-group">
